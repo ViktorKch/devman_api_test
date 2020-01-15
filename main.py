@@ -65,7 +65,7 @@ def main():
             # elif data['status'] == 'timeout':
             #     params['timestamp'] = data['timestamp_to_request']
 
-        except requests.exceptions.ReadTimeout as error:
+        except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectionError):
             continue
 
 
