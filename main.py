@@ -65,10 +65,8 @@ def main():
             # elif data['status'] == 'timeout':
             #     params['timestamp'] = data['timestamp_to_request']
 
-        except Exception as error:
-            logger.exception(f'Ошибка {error}')
-            bot.send_message(chat_id=CHAT_ID, text=f'Бот упал с ошибкой: {error}')
-            exit(1)
+        except requests.exceptions.ReadTimeout as error:
+            continue
 
 
 if __name__ == '__main__':
